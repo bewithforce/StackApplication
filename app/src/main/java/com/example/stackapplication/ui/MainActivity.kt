@@ -3,6 +3,8 @@ package com.example.stackapplication.ui
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.*
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
 import com.example.stackapplication.R
 
 import com.example.stackapplication.logic.Stack
@@ -29,6 +31,15 @@ class MainActivity : AppCompatActivity() {
             } else
                 textInputLayout.error = "bad input"
         }
+
+        textInputLayout.editText!!.setOnClickListener{ textInputLayout.error = ""}
+        textInputLayout.editText!!.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                button_push.performClick()
+                return@OnKeyListener true
+            }
+            false
+        })
 
         button_top.setOnClickListener { textInputLayout.editText?.setText(stack.top()) }
         button_pop.setOnClickListener {
