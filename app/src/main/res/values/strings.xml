@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Stack Application</string>
+    <string name="button_pop">Pop</string>
+    <string name="button_push">Push</string>
+    <string name="button_top">Top</string>
+    <string name="hint">Input text to push</string>
+</resources>
